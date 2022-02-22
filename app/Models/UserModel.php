@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CrudModel extends Model
+class UserModel extends Model
 {
 	protected $table = 'user_table';
 

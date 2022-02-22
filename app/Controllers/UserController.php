@@ -1,18 +1,17 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\UserModel;
 
-use App\Models\CrudModel;
-
-class Crud extends BaseController
+class UserController extends BaseController
 {
 	function index()
 	{
-		$crudModel = new CrudModel();
+		$crudModel = new UserModel();
   
 		$data['user_tabl'] = $crudModel->orderBy('id', 'DESC')->paginate(10);
 		$data['pagination_link'] = $crudModel->pager;
-		return view('crud_view', $data);
+		return view('users/users_view', $data);
 	}
 }
 

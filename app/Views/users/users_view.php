@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <title>Codeigniter 4 Crud Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <!--  -->
 </head>
 
@@ -28,7 +29,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col">Sample Data</div>
+                    <div class="col">Liste des utilisitateurs</div>
                     <div class="col text-right">
 
                     </div>
@@ -38,24 +39,24 @@
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
+                           
+                            <th>Nom</th>
                             <th>Email</th>
-                            <th>Gender</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Sexe</th>
+                            <th>Action</th>
                         </tr>
                         <?php
                         if ($user_tabl) {
                             foreach ($user_tabl as $user) {
                                 echo '
                                 <tr>
-                                    <td>' . $user["id"] . '</td>
+                                 
                                     <td>' . $user["name"] . '</td>
                                     <td>' . $user["email"] . '</td>
                                     <td>' . $user["gender"] . '</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td> <a href="" class="btn btn-outline-success btn-sm"><i class="fa fa-pencil"></i></a>
+                                    <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    </td>
                                 </tr>';
                             }
                         }

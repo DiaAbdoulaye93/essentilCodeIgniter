@@ -34,6 +34,9 @@ $routes->setAutoRoute(true);
 
 $routes->get('liste', 'UserController::index');
 $routes->post('adduser', 'UserController::store');
+$routes->get('edituser/(:num)', 'UserController::singleUser/$1');
+$routes->post('update-user', 'UserController::update');
+$routes->get('delete/(:num)', 'UserController::delete/$1');
 
 /*
  * --------------------------------------------------------------------

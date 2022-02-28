@@ -9,7 +9,7 @@ class UserController extends BaseController
 	{
 		$crudModel = new UserModel();
   
-		$data['user_tabl'] = $crudModel->orderBy('id', 'DESC')->paginate(10);
+		$data['user_table'] = $crudModel->orderBy('id', 'DESC')->paginate(10);
 		$data['pagination_link'] = $crudModel->pager;
 		return view('users/users_view', $data);
 	}
@@ -33,7 +33,8 @@ class UserController extends BaseController
     public function singleUser($id = null){
         $UserModel = new UserModel();
         $data['user_obj'] = $UserModel->where('id', $id)->first();
-        return view('editnames', $data);
+   
+        return view('users/user_edit', $data);
     }
 
     // update name data
@@ -43,16 +44,17 @@ class UserController extends BaseController
         $data = [
             'name' => $this->request->getVar('name'),
             'email'  => $this->request->getVar('email'),
+            'gender'  => $this->request->getVar('sex'),
         ];
         $UserModel->update($id, $data);
-        return $this->response->redirect(site_url('/namelist'));
+        return $this->response->redirect(site_url('/liste'));
     }
  
     // delete name
     public function delete($id = null){
         $UserModel = new UserModel();
         $data['user'] = $UserModel->where('id', $id)->delete($id);
-        return $this->response->redirect(site_url('/namelist'));
+        return $this->response->redirect(site_url('/liste'));
     }   
 }
 

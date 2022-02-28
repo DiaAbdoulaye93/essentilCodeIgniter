@@ -49,16 +49,16 @@
                             <th>Action</th>
                         </tr>
                         <?php
-                        if ($user_tabl) {
-                            foreach ($user_tabl as $user) {
+                        if ($user_table) {
+                            foreach ($user_table as $user) {
                                 echo '
                                 <tr>
                                  
                                     <td>' . $user["name"] . '</td>
                                     <td>' . $user["email"] . '</td>
                                     <td>' . $user["gender"] . '</td>
-                                    <td> <a href="" class="btn btn-outline-success btn-sm"><i class="fa fa-pencil"></i></a>
-                                    <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    <td> <a   href='.base_url('edituser/'.$user['id']).' class="btn btn-outline-success btn-sm"><i class="fa fa-pencil"></i></a>
+                                    <a  href='.base_url('delete/'.$user['id']).' class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>';
                             }
@@ -110,7 +110,7 @@
                                 <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="H">
                                 <label class="form-check-label" for="inlineRadio1">Homme</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <diedituserv class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="F">
                                 <label class="form-check-label" for="inlineRadio2">Femme</label>
                             </div>
@@ -119,12 +119,14 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn btn-success">Ajouter</button>
+                        <button type="submit" class="btn btn-success">soumettre</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+
 
 </body>
 

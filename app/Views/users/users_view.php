@@ -57,8 +57,8 @@
                                     <td>' . $user["name"] . '</td>
                                     <td>' . $user["email"] . '</td>
                                     <td>' . $user["gender"] . '</td>
-                                    <td> <a   href='.base_url('edituser/'.$user['id']).' class="btn btn-outline-success btn-sm"><i class="fa fa-pencil"></i></a>
-                                    <a  href='.base_url('delete/'.$user['id']).' class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    <td> <a   href=' . base_url('edituser/' . $user['id']) . ' class="btn btn-outline-success btn-sm"><i class="fa fa-pencil"></i></a>
+                                    <a  href=' . base_url('delete/' . $user['id']) . ' class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>';
                             }
@@ -110,7 +110,7 @@
                                 <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="H">
                                 <label class="form-check-label" for="inlineRadio1">Homme</label>
                             </div>
-                            <diedituserv class="form-check form-check-inline">
+                            <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="F">
                                 <label class="form-check-label" for="inlineRadio2">Femme</label>
                             </div>
@@ -125,9 +125,6 @@
             </div>
         </div>
     </div>
-
-
-
 </body>
 
 </html>

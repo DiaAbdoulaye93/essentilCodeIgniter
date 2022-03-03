@@ -29,11 +29,10 @@ class UserController extends BaseController
         return $this->response->redirect(site_url('/liste'));
     }
 
-    // show single name
-    public function singleUser($id = null){
+    public function singleUser(){
+        $id= $_GET['id'];
         $UserModel = new UserModel();
         $data['user_obj'] = $UserModel->where('id', $id)->first();
-   
         return view('users/user_edit', $data);
     }
 
@@ -56,6 +55,9 @@ class UserController extends BaseController
         $data['user'] = $UserModel->where('id', $id)->delete($id);
         return $this->response->redirect(site_url('/liste'));
     }   
-}
 
+public function welcome(){
+    return view('users/otherview');
+}
+}
 ?>

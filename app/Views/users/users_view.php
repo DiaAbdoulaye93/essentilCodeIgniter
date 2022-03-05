@@ -7,14 +7,23 @@
     <?php
 
     $session = \Config\Services::session();
-
-    if ($session->getFlashdata('success')) {
-        echo '
-            <div class="alert alert-success">' . $session->getFlashdata("success") . '</div>
-            ';
-    }
-
-    ?>
+    ?><script>
+        $(function() {
+            <?php if (session()->has("success")) { ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Great!',
+                    text: '<?= session("success") ?>'
+                })
+            <?php } if (session()->has("error")){ ?>
+                 Swal.fire({
+                    icon: 'error',
+                    title: 'Oups!',
+                    text: '<?= session("error") ?>'
+                })
+                <?php }?>
+        });
+    </script>
     <div class="card">
         <div class="card-header">
             <div class="row">

@@ -19,13 +19,19 @@ class UserController extends BaseController
  
     // add data
     public function store() {
+            $session = \Config\Services::session();
         $UserModel = new UserModel();
         $data = [
             'name' => $this->request->getVar('nom'),
             'email'  => $this->request->getVar('email'),
 			'gender'  => $this->request->getVar('sex'),
         ];
-        $UserModel->insert($data);
+        if($UserModel->insert($data)){
+            $session->setFlashdata('success', 'utilisateur ajouté avec success');
+        }else{
+            $session->setFlashdata('error', 'Echec insertion');
+        }
+
         return $this->response->redirect(site_url('/liste'));
     }
 

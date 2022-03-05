@@ -1,6 +1,6 @@
 <aside class="left-sidebar" data-sidebarbg="skin6">
     <!-- Sidebar scroll-->
-    <div class="scroll-sidebar bg-dark">
+    <div class="scroll-sidebar bg-danger">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">

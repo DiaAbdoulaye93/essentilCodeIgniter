@@ -41,9 +41,6 @@
         }
     </style>
 </head>
-
-<?php echo view('admin_template/header') ?>
-
 <body style="min-height:100ox">
 
     <?php echo view('admin_template/sidebar') ?>

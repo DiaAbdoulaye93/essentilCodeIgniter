@@ -1,4 +1,4 @@
-<?= $this->extend("admin_template/index") ?>
+<?= $this->extend("./admin_template/index") ?>
 <?= $this->section("content") ?>
 <div class="container">
 
@@ -79,8 +79,6 @@
         </div>
     </div>
 </div>
-
-</div>
 <!-- Modal Add Product-->
 
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -92,26 +90,26 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" id="addname" name="addname" action="<?= site_url('/adduser') ?>">
+            <form method="post" id="addname" name="addname">
                 <div class="modal-body">
 
                     <div class="form-group">
                         <label>Nom Prénom</label>
-                        <input type="text" class="form-control" name="nom" placeholder="Salif Fall">
+                        <input type="text" class="form-control" name="nom" placeholder="Salif Fall" id="nom">
                     </div>
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="lazy@hotmail.com">
+                        <input type="text" class="form-control" name="email" placeholder="lazy@hotmail.com" id="email">
                     </div>
                     <div class="form-group">
                         <label>Sex</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="H">
+                            <input class="form-check-input" type="radio" name="sex"  value="H" id="sex">
                             <label class="form-check-label" for="inlineRadio1">Homme</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="F">
+                            <input class="form-check-input" type="radio" name="sex"  value="F" id="sex">
                             <label class="form-check-label" for="inlineRadio2">Femme</label>
                         </div>
                     </div>
@@ -125,6 +123,43 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function() {
+       
+        $('#addname').submit(function(e) {
+           
+            var nom = $("#nom").val();
+            var email = $("#email").val();
+            var sex = $("#sex:checked").val();
+         
+            // var data = $(".add-user").serialize().split("&");
+            // var obj = {};
+            // for (var key in data) {
+
+            //     obj[data[key].split("=")[0]] = data[key].split("=")[1];
+            // }
+            $.ajax(
+                {
+                type: "POST",
+                url: "<?php echo base_url('/adduser') ?>",
+                 dataType: 'text',
+                data: {
+                    'nom':nom,
+                    'email':email,
+                    'sex':sex,
+                  
+                },
+                success: function(data) {
+                    console.log(data);
+                }
+
+            }); // you have missed this bracket
+            return false;
+        });
+    });
+</script>
 <?= $this->endSection() ?>
 <!-- <style>
     .pagination li a {

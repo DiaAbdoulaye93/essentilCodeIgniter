@@ -8,7 +8,6 @@ class UserController extends BaseController
 	function index()
 	{
 		$crudModel = new UserModel();
-  
 		$data['user_table'] = $crudModel->orderBy('id', 'DESC')->paginate(10);
 		$data['pagination_link'] = $crudModel->pager;
 		return view('users/users_view', $data);
@@ -26,6 +25,7 @@ class UserController extends BaseController
             'email'  => $this->request->getVar('email'),
 			'gender'  => $this->request->getVar('sex'),
         ];
+      
         if($UserModel->insert($data)){
             $session->setFlashdata('success', 'utilisateur ajouté avec success');
         }else{

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="fr">
 
 <head>
     <meta charset="utf-8">
@@ -42,13 +42,8 @@
     </style>
 </head>
 <body style="min-height:100ox">
-
     <?php echo view('admin_template/sidebar') ?>
-
     <?= $this->renderSection("content"); ?>
-
-
-
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
